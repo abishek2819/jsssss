@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StudentBlog — Post</title>
+    <meta name="description" content="Read a student blog post." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="post.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="blog.html" class="nav-brand">✍️ StudentBlog</a>
+        <div class="nav-actions">
+            <button class="btn btn-ghost" id="edit-btn" hidden>✏️ Edit</button>
+            <a href="write.html" class="btn btn-primary" id="write-link">+ Write</a>
+            <button class="avatar-btn" id="avatar-btn" aria-label="user"></button>
+            <a href="index.html" class="btn btn-ghost" id="login-link" hidden>Sign in</a>
+        </div>
+    </nav>
+
+    <!-- Loading -->
+    <div class="loading-state" id="loading">
+        <div class="spinner"></div>
+        <p>Loading post…</p>
+    </div>
+
+    <!-- Article -->
+    <article class="article-wrap hidden" id="article">
+        <!-- Tags -->
+        <div class="article-tags" id="article-tags"></div>
+
+        <!-- Title -->
+        <h1 class="article-title" id="article-title"></h1>
+
+        <!-- Author meta -->
+        <div class="author-bar">
+            <div class="author-avatar" id="author-avatar"></div>
+            <div class="author-info">
+                <span class="author-name" id="author-name"></span>
+                <span class="author-meta" id="author-meta"></span>
+            </div>
+            <div class="article-actions">
+                <button class="btn btn-danger hidden" id="post-delete-btn" title="Delete post">🗑 Delete</button>
+                <button class="like-btn" id="like-btn" aria-label="Like">
+                    <span class="like-icon">🤍</span>
+                    <span class="like-count" id="like-count">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="article-content" id="article-content"></div>
+
+        <!-- Tags footer -->
+        <div class="tags-footer" id="tags-footer"></div>
+    </article>
+
+    <!-- Comments section -->
+    <section class="comments-section hidden" id="comments-section">
+        <h2 class="comments-heading">💬 Comments <span id="comment-count-label"></span></h2>
+
+        <!-- Add comment (logged in only) -->
+        <form class="comment-form hidden" id="comment-form">
+            <div class="comment-avatar" id="comment-me-avatar"></div>
+            <div class="comment-input-wrap">
+                <textarea id="comment-input" placeholder="Add a thoughtful comment…" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary" id="comment-submit">Post comment</button>
+            </div>
+        </form>
+
+        <div class="sign-in-prompt hidden" id="sign-in-prompt">
+            <a href="index.html" class="btn btn-ghost">Sign in to comment</a>
+        </div>
+
+        <!-- Comments list -->
+        <div id="comments-list"></div>
+
+        <div class="no-comments hidden" id="no-comments">
+            <p>No comments yet. Be the first!</p>
+        </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast hidden" id="toast"></div>
+
+    <script src="auth.js"></script>
+    <script src="post.js"></script>
+</body>
+
+</html>

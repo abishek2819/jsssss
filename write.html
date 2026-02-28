@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StudentBlog — Write</title>
+    <meta name="description" content="Write and publish your blog post on StudentBlog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="editor.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="blog.html" class="nav-brand">✍️ StudentBlog</a>
+        <div class="nav-actions">
+            <span id="save-status" class="save-status"></span>
+            <button class="btn btn-ghost" id="preview-btn" type="button">👁 Preview</button>
+            <button class="btn btn-primary" id="publish-btn" type="button">Publish</button>
+            <button class="avatar-btn" id="avatar-btn" aria-label="user"></button>
+        </div>
+    </nav>
+
+    <!-- Editor -->
+    <main class="editor-wrap">
+        <div class="editor-card" id="editor-card">
+            <input id="title-input" type="text" class="title-input" placeholder="Your post title…" maxlength="140"
+                autocomplete="off" />
+
+            <!-- Toolbar -->
+            <div class="toolbar" role="toolbar" aria-label="Formatting">
+                <button data-cmd="bold" title="Bold (Ctrl+B)" class="tool-btn"><b>B</b></button>
+                <button data-cmd="italic" title="Italic (Ctrl+I)" class="tool-btn"><i>I</i></button>
+                <button data-cmd="underline" title="Underline (Ctrl+U)" class="tool-btn"><u>U</u></button>
+                <div class="tool-sep"></div>
+                <button data-cmd="insertUnorderedList" title="Bullet list" class="tool-btn">☰</button>
+                <button data-cmd="insertOrderedList" title="Numbered list" class="tool-btn">≡</button>
+                <div class="tool-sep"></div>
+                <button data-cmd="justifyLeft" title="Align left" class="tool-btn">⬛</button>
+                <button data-cmd="justifyCenter" title="Center" class="tool-btn">▬</button>
+                <button data-cmd="justifyRight" title="Align right" class="tool-btn">▶</button>
+                <div class="tool-sep"></div>
+                <select id="format-select" class="tool-select" title="Heading">
+                    <option value="div">Normal</option>
+                    <option value="h2">Heading 2</option>
+                    <option value="h3">Heading 3</option>
+                    <option value="h4">Heading 4</option>
+                    <option value="pre">Code</option>
+                </select>
+                <div class="tool-sep"></div>
+                <button data-cmd="removeFormat" title="Clear format" class="tool-btn">✕</button>
+            </div>
+
+            <div id="editor" class="editor-body" contenteditable="true" role="textbox" aria-multiline="true"
+                aria-label="Post content" data-placeholder="Tell your story…"></div>
+
+            <!-- Tags & meta -->
+            <div class="meta-row">
+                <label for="tags-input">Tags <span class="meta-hint">(comma separated)</span></label>
+                <input id="tags-input" type="text" placeholder="e.g. tech, study, life" class="meta-input" />
+            </div>
+        </div>
+
+        <!-- Preview panel (hidden until toggle) -->
+        <div class="preview-panel hidden" id="preview-panel">
+            <div class="preview-inner">
+                <h1 id="preview-title"></h1>
+                <div id="preview-content" class="preview-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Delete button shown only on edit -->
+    <div class="delete-bar hidden" id="delete-bar">
+        <button class="btn btn-danger" id="delete-btn">🗑 Delete this post</button>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast hidden" id="toast"></div>
+
+    <script src="auth.js"></script>
+    <script src="write.js"></script>
+</body>
+
+</html>

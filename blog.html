@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StudentBlog — All Posts</title>
+    <meta name="description" content="Discover student blogs — read, write and share ideas." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="blog.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="blog.html" class="nav-brand">✍️ StudentBlog</a>
+        <div class="nav-search">
+            <input id="search-input" type="text" placeholder="🔍 Search posts..." autocomplete="off" />
+        </div>
+        <div class="nav-actions">
+            <a href="write.html" class="btn btn-primary" id="write-btn">+ Write</a>
+            <div class="avatar-wrap" id="user-menu-wrap">
+                <button class="avatar-btn" id="avatar-btn" aria-label="User menu"></button>
+                <div class="dropdown" id="dropdown" hidden>
+                    <div class="dropdown-user" id="dropdown-user"></div>
+                    <a href="write.html" class="dropdown-item">✏️ Write post</a>
+                    <a href="#" class="dropdown-item" id="my-posts-link">📋 My posts</a>
+                    <hr class="dropdown-divider" />
+                    <button class="dropdown-item danger" id="logout-btn">🚪 Sign out</button>
+                </div>
+            </div>
+            <a href="index.html" class="btn btn-ghost" id="login-link" hidden>Sign in</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Explore Student Stories</h1>
+            <p>A platform where students write, share ideas, and inspire each other.</p>
+        </div>
+    </header>
+
+    <!-- Tags filter -->
+    <div class="tags-strip" id="tags-strip">
+        <button class="tag-pill active" data-tag="">All</button>
+    </div>
+
+    <!-- Blog feed -->
+    <main class="feed-wrap">
+        <div class="feed" id="feed">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading posts…</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Empty state (hidden initially) -->
+    <div class="empty-state hidden" id="empty-state">
+        <div class="empty-icon">📝</div>
+        <h2>No posts yet</h2>
+        <p>Be the first one to share your story!</p>
+        <a href="write.html" class="btn btn-primary">Write the first post</a>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="blog.js"></script>
+</body>
+
+</html>
