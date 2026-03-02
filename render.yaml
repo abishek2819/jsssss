@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: student-blog-platform
+    env: node
+    region: singapore          # closest to India — change to oregon/frankfurt as needed
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: JWT_SECRET
+        sync: false            # set this manually in Render dashboard (keep secret)
+      - key: DB_HOST
+        sync: false            # your hosted MySQL host
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: blog_db
